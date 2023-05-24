@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CreateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Apellido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Telf" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Logueo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogueoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogueoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarGrupos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarGruposResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarGruposResult" type="tns:ArrayOfGrupoWS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGrupoWS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GrupoWS" nillable="true" type="tns:GrupoWS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GrupoWS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ListarContactos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdGroup" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarContactosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarContactosResult" type="tns:ArrayOfContactoWS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfContactoWS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContactoWS" nillable="true" type="tns:ContactoWS" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContactoWS">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellidos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telf" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CrearGrupo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NombreGrupo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearGrupoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CrearGrupoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearContacto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdGrupo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="C" type="tns:ContactoWS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CrearContactoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CrearContactoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="CreateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogueoSoapIn">
+    <wsdl:part name="parameters" element="tns:Logueo" />
+  </wsdl:message>
+  <wsdl:message name="LogueoSoapOut">
+    <wsdl:part name="parameters" element="tns:LogueoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarGruposSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarGrupos" />
+  </wsdl:message>
+  <wsdl:message name="ListarGruposSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarGruposResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarContactosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarContactos" />
+  </wsdl:message>
+  <wsdl:message name="ListarContactosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarContactosResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearGrupoSoapIn">
+    <wsdl:part name="parameters" element="tns:CrearGrupo" />
+  </wsdl:message>
+  <wsdl:message name="CrearGrupoSoapOut">
+    <wsdl:part name="parameters" element="tns:CrearGrupoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CrearContactoSoapIn">
+    <wsdl:part name="parameters" element="tns:CrearContacto" />
+  </wsdl:message>
+  <wsdl:message name="CrearContactoSoapOut">
+    <wsdl:part name="parameters" element="tns:CrearContactoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AgendaOnlineWSSoap">
+    <wsdl:operation name="CreateUser">
+      <wsdl:input message="tns:CreateUserSoapIn" />
+      <wsdl:output message="tns:CreateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logueo">
+      <wsdl:input message="tns:LogueoSoapIn" />
+      <wsdl:output message="tns:LogueoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarGrupos">
+      <wsdl:input message="tns:ListarGruposSoapIn" />
+      <wsdl:output message="tns:ListarGruposSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarContactos">
+      <wsdl:input message="tns:ListarContactosSoapIn" />
+      <wsdl:output message="tns:ListarContactosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearGrupo">
+      <wsdl:input message="tns:CrearGrupoSoapIn" />
+      <wsdl:output message="tns:CrearGrupoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearContacto">
+      <wsdl:input message="tns:CrearContactoSoapIn" />
+      <wsdl:output message="tns:CrearContactoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AgendaOnlineWSSoap" type="tns:AgendaOnlineWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logueo">
+      <soap:operation soapAction="http://tempuri.org/Logueo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarGrupos">
+      <soap:operation soapAction="http://tempuri.org/ListarGrupos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarContactos">
+      <soap:operation soapAction="http://tempuri.org/ListarContactos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearGrupo">
+      <soap:operation soapAction="http://tempuri.org/CrearGrupo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearContacto">
+      <soap:operation soapAction="http://tempuri.org/CrearContacto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AgendaOnlineWSSoap12" type="tns:AgendaOnlineWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateUser">
+      <soap12:operation soapAction="http://tempuri.org/CreateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logueo">
+      <soap12:operation soapAction="http://tempuri.org/Logueo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarGrupos">
+      <soap12:operation soapAction="http://tempuri.org/ListarGrupos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarContactos">
+      <soap12:operation soapAction="http://tempuri.org/ListarContactos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearGrupo">
+      <soap12:operation soapAction="http://tempuri.org/CrearGrupo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearContacto">
+      <soap12:operation soapAction="http://tempuri.org/CrearContacto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AgendaOnlineWS">
+    <wsdl:port name="AgendaOnlineWSSoap" binding="tns:AgendaOnlineWSSoap">
+      <soap:address location="http://pogramaweb2023.somee.com/AgendaOline/AgendaOnlineWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AgendaOnlineWSSoap12" binding="tns:AgendaOnlineWSSoap12">
+      <soap12:address location="http://pogramaweb2023.somee.com/AgendaOline/AgendaOnlineWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

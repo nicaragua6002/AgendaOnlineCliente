@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AgendaOnline</string>
+    <string name="action_settings">Settings</string>
+    <string name="txtinicio">Iniciar sesión</string>
+    <string name="txtresgistro">Registrarse</string>
+    <string name="txtcomplete">Complete todos los campos</string>
+</resources>
