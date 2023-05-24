@@ -32,27 +32,27 @@ namespace AgendaOnline
             return Servicio.CreateUser(Nombre, Apellido, Email, Telf, Pass);
         }
 
-        public int IniciarSesion(string Email, string Pass)
+        public static int IniciarSesion(string Email, string Pass)
         {
             return Servicio.Logueo(Email, Pass);
         }
 
-        public bool CrearGrupo(string Email, string Pass, string NombreGrupo, string Color)
+        public static bool CrearGrupo( string NombreGrupo, string Color)
         {
             return Servicio.CrearGrupo(Email, Pass, NombreGrupo, Color);
         }
 
-        public bool CrearContacto(string Email, string Pass, int idGrupo, ContactoWS Contacto)
+        public static bool CrearContacto( int idGrupo, ContactoWS Contacto)
         {
             return Servicio.CrearContacto(Email, Pass, idGrupo, Contacto);
         }
 
-        public List<GrupoWS> ListarGrupos(string Email, string Pass)
+        public static List<GrupoWS> ListarGrupos()
         {
             return Servicio.ListarGrupos(Email, Pass).ToList();
         }
 
-        public List<ContactoWS> ListarContactos(string Email, string Pass, int idGrupo)
+        public static List<ContactoWS> ListarContactos( int idGrupo)
         {
             return Servicio.ListarContactos(Email, Pass, idGrupo).ToList();
         }
